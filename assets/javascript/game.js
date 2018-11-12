@@ -17,14 +17,10 @@ var losses = 0;
 var guessesRemaining = 9;
 
 
-
 // ALL FUNCTIONS
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-
-//__________________________________________________________
 //GAME START FUNCTION
-//__________________________________________________________
+
 function Game() {
     chosenWord = words[Math.floor(Math.random() * words.length)];
     chosenLetters = chosenWord.split("");
@@ -40,15 +36,13 @@ function Game() {
 
     //console logging 
     console.log(chosenWord);
-    console.log(chosenLetters)
-    console.log(blanks)
-    console.log(blanksAndCorrect)
+    console.log(chosenLetters);
+    console.log(blanks);
+    console.log(blanksAndCorrect);
 }
 
-
-//__________________________________________________________
 //RESET FUNCTION
-//__________________________________________________________
+
 function reset() {
     guessesRemaining = 9;
     wrongGuess = [];
@@ -56,22 +50,18 @@ function reset() {
     Game()
 }
 
-//__________________________________________________________
-//CHECK LETTERS/COMPARE FUNCTION
-//__________________________________________________________
-
 //If/Else, to see if letter selected matches random word
 function checkLetters(letter) {
     var letterInWord = false;
     for (var i = 0; i < blanks; i++) {
-        if (randomWord[i] == letter) {
+        if (chosenWord[i] == letter) {
             letterInWord = true;
         }
     }
     //if letterInWord (false)
     if (letterInWord) {
         for (var i = 0; i < blanks; i++) {
-            if (randomWord[i] == letter) {
+            if (chosenWord[i] == letter) {
                 blanksAndCorrect[i] = letter;
             }
         }
@@ -84,10 +74,8 @@ function checkLetters(letter) {
     console.log(blanksAndCorrect);
 }
 
-//__________________________________________________________
-//FINAL COMPLETE FUNCTION
-//__________________________________________________________
 
+//FINAL COMPLETE FUNCTION
 //check to see if player won...
 function complete() {
     console.log("wins:" + wins + "| losses:" + losses + "| guesses left:" + guessesRemaining)
@@ -95,7 +83,6 @@ function complete() {
     //if WON...then alert, play audio, display image and reset new round
     if (chosenLetters.toString() == blanksAndCorrect.toString()) {
         wins++;
-        aud()
         reset()
         //display wins on screen
         document.getElementById("winstracker").innerHTML = " " + wins;
@@ -112,11 +99,6 @@ function complete() {
     document.getElementById("guessesremaining").innerHTML = " " + guessesRemaining;
 }
 
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//_____________________________________________________
-// EXECUTE CODE 
-//_____________________________________________________
 
 //call start game function
 Game()

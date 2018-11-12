@@ -37,13 +37,9 @@ img {
 span {
     padding-left: 3px;
     padding-right:3px;
-    background-color: yellow; 
     font-size: 15px;
 }
 
-.background {
-    background-image: url("../images/backsplash.jpg");
-}
 
 .container {
     background-color: white;
